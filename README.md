@@ -1,114 +1,88 @@
 Resume Keyword Matcher
-A lightweight Python tool that compares a job description against a resume, extracts matching and missing keywords, computes a match score as a percentage, and groups results by category. Built with a clean Streamlit web interface and an optional command-line interface.
+A Python tool that compares a job description with a resume, identifies matching and missing keywords, and computes a match score as a percentage. Missing keywords are grouped into three categories: Technical Skills, Soft Skills, and Qualifications.
 
 Table of Contents
 
 Overview
-Features
+Tools and Technologies Used
 Project Structure
-Requirements
-Installation
-How to Run
 How It Works
+How to Run
 Sample Input and Output
 
 
 Overview
-When applying for jobs, resumes are often screened by ATS (Applicant Tracking Systems) that look for specific keywords from the job description. This tool helps candidates identify which keywords are present in their resume and which are missing, so they can improve their chances before applying.
-The tool requires no internet connection, no external NLP libraries, and no AI models. It uses a curated keyword dictionary and Python built-in string processing to perform fast, transparent, and deterministic keyword matching.
+When applying for jobs, resumes are often filtered by ATS (Applicant Tracking Systems) that scan for specific keywords from the job description. Many qualified candidates get rejected simply because their resume does not contain the right words.
+This tool helps you identify exactly which keywords are missing from your resume so you can improve it before applying. You paste a job description and your resume, and the tool instantly gives you a match score along with a detailed breakdown of matched and missing keywords by category.
 
-Features
-
-Accepts a job description and a resume as plain text input
-Extracts single-word and multi-word keywords such as machine learning, ci/cd, and attention to detail
-Categorizes keywords into three groups: Technical Skills, Soft Skills, and Qualifications
-Computes a match score as a percentage based on how many job description keywords appear in the resume
-Displays matched keywords and missing keywords separately
-Shows per-category progress breakdown
-Provides actionable suggestions to improve the resume
-Clean and responsive Streamlit web interface
-Optional command-line interface for terminal users
-
+Tools and Technologies Used
+ToolPurposePython 3.8+Core programming languageStreamlitWeb interface for the frontendreText cleaning and normalizationcollectionsData handling in keyword processingargparseCommand-line argument parsingVS CodeDevelopment environment
 
 Project Structure
 resume-keyword-matcher/
-│
-├── app.py                  # Streamlit web application
-├── matcher.py              # Core keyword extraction and matching logic
-├── cli.py                  # Command-line interface
-├── requirements.txt        # Python dependencies
-├── sample_jd.txt           # Sample job description for testing
-├── sample_resume.txt       # Sample resume for testing
-├── .gitignore              # Files to exclude from version control
-
-Requirements
-
-Python 3.8 or higher
-Streamlit 1.32.0 or higher
-
-No other external libraries are required. All other modules used (re, collections, argparse) are part of the Python standard library.
-
-How to Run
-Option 1 — Streamlit Web Interface (Recommended)
-bashstreamlit run app.py
-Or if streamlit is not recognized:
-bashpython -m streamlit run app.py
-The app will open automatically in your browser at http://localhost:8501.
-Steps to use the web app:
-
-Paste the job description into the left text box
-Paste your resume into the right text box
-Click Analyze Match
-View your match score, matched keywords, missing keywords, and improvement tips
-
-
-Option 2 — Command-Line Interface
-Interactive mode (paste text directly in the terminal):
-bashpython cli.py
-File mode (pass text files as arguments):
-bashpython cli.py --jd sample_jd.txt --resume sample_resume.txt
+|
+|-- app.py               # Streamlit web application
+|-- matcher.py           # Keyword extraction and matching logic
+|-- cli.py               # Command-line interface
+|-- requirements.txt     # Project dependencies
+|-- sample_jd.txt        # Sample job description for testing
+|-- sample_resume.txt    # Sample resume for testing
+|-- README.md            # Project documentation
 
 How It Works
-The matching process follows these steps:
-1. Text Normalization
-Both the job description and resume are lowercased and lightly cleaned to remove punctuation noise.
-2. N-gram Generation
-The text is broken into 1 to 4 word n-grams so that multi-word phrases like machine learning, attention to detail, and ci/cd are correctly identified.
-3. Keyword Dictionary Lookup
-Each n-gram is checked against three curated keyword sets:
+Step 1 - Text Normalization
+Both inputs are converted to lowercase and cleaned using regular expressions to remove punctuation noise.
+Step 2 - N-gram Generation
+The text is broken into 1 to 4 word combinations so that multi-word keywords like machine learning, attention to detail, and ci/cd are detected correctly.
+Step 3 - Keyword Dictionary Lookup
+Each word or phrase is checked against a curated dictionary of 180+ keywords across three categories:
 
-Technical Skills — 100+ keywords covering languages, frameworks, databases, cloud platforms, ML tools, DevOps, and more
-Soft Skills — 30+ keywords covering communication, leadership, teamwork, and other professional traits
-Qualifications — 20+ keywords covering degrees, certifications, and experience levels
+Technical Skills: Languages, frameworks, databases, cloud tools, DevOps, ML libraries
+Soft Skills: Communication, leadership, teamwork, problem-solving, and more
+Qualifications: Degrees, certifications, and experience levels
 
-4. Score Calculation
-Match Score = (Keywords found in resume / Keywords found in job description) x 100
-The score only counts keywords that appear in the job description, so the result reflects how well the resume is tailored to that specific role.
+Step 4 - Score Calculation
+Match Score = (Keywords found in resume / Keywords in job description) x 100
+
+How to Run
+Install the dependency
+bashpip install -r requirements.txt
+Run the web app
+bashstreamlit run app.py
+Open your browser at http://localhost:8501
+Steps:
+
+Paste the job description into the left box
+Paste your resume into the right box
+Click Analyze Match
+View your score, matched keywords, missing keywords, and tips
+
 
 Sample Input and Output
 Job Description (excerpt)
 Requirements:
-- Bachelor degree in Computer Science or Software Engineering
-- Strong proficiency in Python and Django or Flask
-- Experience with PostgreSQL and Redis
-- Familiarity with Docker and AWS
-- Knowledge of REST API design
+- Bachelor degree in Computer Science
+- Proficiency in Python and Django
+- Experience with PostgreSQL, Docker, and AWS
+- Knowledge of REST APIs and Git
 - Strong communication and teamwork skills
 Resume (excerpt)
 Skills     : Python, Django, PostgreSQL, AWS, Docker, Git, REST APIs
 Education  : B.Tech in Computer Science
 Soft Skills: Communication, teamwork, problem-solving
 Output
-Match Score  : 78.6%
-JD Keywords  : 14
-Matched      : 11
-Missing      : 3
+Match Score : 78.6%
+Verdict     : Good Match
 
-Technical Skills   [########--------]  60%   (6/10)
-Soft Skills        [################]  100%  (2/2)
-Qualifications     [####################] 100% (3/3)
+JD Keywords : 14
+Matched     : 11
+Missing     : 3
+
+Technical Skills   [############----]  75%   (9/12)
+Soft Skills        [####################] 100%  (2/2)
+Qualifications     [####################] 100%  (2/2)
 
 Missing Keywords:
-  Technical Skills : redis, flask
-  Soft Skills      : (none missing)
-  Qualifications   : (none missing)
+  Technical Skills : ci/cd, redis, flask
+  Soft Skills      : none missing
+  Qualifications   : none missing
