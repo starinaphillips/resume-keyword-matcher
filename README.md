@@ -3,12 +3,12 @@ A Python tool that compares a job description with a resume, identifies matching
 
 Table of Contents
 
-Overview
-Tools and Technologies Used
-Project Structure
-How It Works
-How to Run
-Sample Input and Output
+1.Overview
+2.Tools and Technologies Used
+3.Project Structure
+4.How It Works
+5.How to Run
+6.Sample Input and Output
 
 
 Overview
@@ -16,7 +16,12 @@ When applying for jobs, resumes are often filtered by ATS (Applicant Tracking Sy
 This tool helps you identify exactly which keywords are missing from your resume so you can improve it before applying. You paste a job description and your resume, and the tool instantly gives you a match score along with a detailed breakdown of matched and missing keywords by category.
 
 Tools and Technologies Used
-ToolPurposePython 3.8+Core programming languageStreamlitWeb interface for the frontendreText cleaning and normalizationcollectionsData handling in keyword processingargparseCommand-line argument parsingVS CodeDevelopment environment
+1.Python 3.8+: Core programming language
+2.Streamlit: Web interface for the frontend
+3.re :Text cleaning and normalization 
+4.collections: Data handling in keyword processing
+5.argparse: Command-line argument parsing
+6.VS Code :Development environment
 
 Project Structure
 resume-keyword-matcher/
@@ -27,7 +32,7 @@ resume-keyword-matcher/
 |-- requirements.txt     # Project dependencies
 |-- sample_jd.txt        # Sample job description for testing
 |-- sample_resume.txt    # Sample resume for testing
-|-- README.md            # Project documentation
+
 
 How It Works
 Step 1 - Text Normalization
@@ -46,9 +51,9 @@ Match Score = (Keywords found in resume / Keywords in job description) x 100
 
 How to Run
 Install the dependency
-bashpip install -r requirements.txt
+bash :pip install -r requirements.txt
 Run the web app
-bashstreamlit run app.py
+bash: streamlit run app.py
 Open your browser at http://localhost:8501
 Steps:
 
