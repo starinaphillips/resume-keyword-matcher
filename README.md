@@ -23,14 +23,6 @@ Which keywords are missing from your resume, grouped by category
 Actionable tips on where and how to add the missing keywords
 
 The tool requires no internet connection and produces results instantly.
-
-Why No Machine Learning
-This is a deliberate design choice, not a limitation.
-The core problem this tool solves is very specific: check whether a keyword from the job description exists in the resume. That is a straightforward yes or no question — it does not require prediction, pattern recognition, or understanding of meaning.
-Machine learning is the right tool when the rules are too complex to write manually, such as recognizing faces in images or translating languages. Here the rule is simple: does this word or phrase appear in this text? Plain Python handles that perfectly and has several advantages over ML for this use case:
-
-No model downloads or heavy setup required. The tool runs with a single pip install.
-Results are instant. An ML model takes time to load and process.
 Every match is fully explainable. You can see exactly why a keyword was matched or missed. ML models are a black box.
 For exact keyword matching, a dictionary approach is more reliable than ML. An ML model might treat "coding" and "python" as similar and count it as a match, which would produce incorrect results for ATS-style matching.
 Anyone can run and understand the code without knowledge of machine learning.
