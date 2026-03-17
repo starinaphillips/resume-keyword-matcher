@@ -1,0 +1,41 @@
+Anika Sharma
+anika.sharma@email.com | github.com/anikasharma | linkedin.com/in/anikasharma
+
+EDUCATION
+M.Tech in Computer Science — IIT Bombay (2022–2024)  CGPA: 9.1
+B.Tech in Computer Science — BITS Pilani (2018–2022)  CGPA: 8.7
+
+SKILLS
+Languages   : Python, Java, SQL, Bash
+Frameworks  : FastAPI, Django, React
+ML / Data   : TensorFlow, scikit-learn, pandas, NumPy, Matplotlib
+Databases   : PostgreSQL, MySQL, Redis
+Cloud / Ops : AWS (EC2, S3, Lambda), Docker, Git, GitHub Actions
+Tools       : Jupyter, VS Code, Postman
+
+EXPERIENCE
+Software Engineering Intern — Flipkart, Bengaluru (May 2023 – Jul 2023)
+• Built a real-time recommendation engine using Python and PostgreSQL, reducing latency by 35%
+• Developed REST APIs with FastAPI and deployed services using Docker containers
+• Wrote unit tests achieving 90% coverage; participated in agile sprints and code reviews
+
+Research Intern — IIT Bombay AI Lab (Jan 2023 – Apr 2023)
+• Implemented deep learning models in TensorFlow for image classification tasks
+• Processed large datasets using pandas and NumPy; visualised results with Matplotlib
+• Collaborated with a team of 5 researchers; presented findings in weekly meetings
+
+PROJECTS
+ML Pipeline Orchestrator (GitHub)
+• Designed a lightweight workflow engine in Python to schedule and monitor ML training jobs
+• Used Redis for job-queue management and PostgreSQL for metadata storage
+
+Resume Parser (GitHub)
+• Built an NLP-based resume parser using Python and regex; extracted skills, education, experience
+• Deployed as a REST API on AWS EC2 with Docker; documented with Swagger
+
+ACHIEVEMENTS
+• Ranked in top 1% at GATE CS 2022
+• Winner, Smart India Hackathon 2022 — AI track
+
+SOFT SKILLS
+Strong communication, teamwork, and problem-solving abilities. Detail-oriented and self-motivated with a proactive approach to learning new technologies.
