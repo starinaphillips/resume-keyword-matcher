@@ -520,6 +520,24 @@ if analyze_btn:
             for tip in tips:
                 st.markdown(f"- {tip}")
 
+        # -- Download Button --
+        import json
+        export_data = {
+            "match_score": score,
+            "total_jd_keywords": total_jd,
+            "total_matched": total_hit,
+            "matched_keywords": matched,
+            "missing_keywords": missing,
+            "jd_keyword_counts": jd_counts,
+        }
+        st.markdown('<hr class="section-divider">', unsafe_allow_html=True)
+        st.download_button(
+            label="Download Results as JSON",
+            data=json.dumps(export_data, indent=2),
+            file_name="match_results.json",
+            mime="application/json",
+        )
+
 elif not analyze_btn:
     st.markdown("""
     <div class="empty-state" style="padding:2rem 1rem;">
@@ -535,3 +553,4 @@ st.markdown("""
     Resume Keyword Matcher &nbsp;·&nbsp; Built with Python &amp; Streamlit
 </div>
 """, unsafe_allow_html=True)
+
